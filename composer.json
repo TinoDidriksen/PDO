@@ -1,0 +1,29 @@
+{
+	"name": "tdc/pdo",
+	"description": "PDO MySQL/MariaDB wrapper adding nested transactions and sane defaults",
+	"version": "1.0.0",
+	"type": "library",
+	"keywords": ["pdo", "mysql", "mariadb"],
+	"homepage": "https://github.com/TinoDidriksen/PDO",
+	"license": "CC0",
+	"authors": [
+		{
+			"name": "Tino Didriksen",
+			"email": "mail@tinodidriksen.com",
+			"homepage": "https://tinodidriksen.com/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/TinoDidriksen/PDO/issues"
+	},
+	"require": {
+		"php": ">= 5.3.0",
+		"ext-pdo": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"TDC\\": "TDC/"
+		}
+	}
+}
