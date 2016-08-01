@@ -5,7 +5,7 @@
  */
 namespace TDC\PDO;
 
-class MySQL extends \TDC\PDO {
+class MySQL extends \TDC\PDO\PDO {
 	public function __construct($db, $user=null, $pass=null) {
 		parent::__construct('mysql:dbname='.$db.';charset=utf8mb4', $user, $pass, [
 			PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4'",

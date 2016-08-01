@@ -5,7 +5,7 @@
  */
 namespace TDC\PDO;
 
-class PgSQL extends \TDC\PDO {
+class PgSQL extends \TDC\PDO\PDO {
 	public function __construct($db, $user=null, $pass=null) {
 		parent::__construct('pgsql:dbname='.$db, $user, $pass);
         parent::exec("SET CLIENT_ENCODING TO 'UTF8'");
