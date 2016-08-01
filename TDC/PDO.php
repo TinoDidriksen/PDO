@@ -3,7 +3,7 @@
  * @license CC0
  * @license https://creativecommons.org/publicdomain/zero/1.0/
  */
-namespace TDC;
+namespace TDC\PDO;
 
 class PDO extends \PDO {
 	protected $_trd = 0;
