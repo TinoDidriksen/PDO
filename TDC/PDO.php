@@ -19,36 +19,36 @@ class PDO extends \PDO {
 		parent::setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
-    public function prepexec($query, $args = []) {
-    	$stm = parent::prepare($query);
-    	if (empty($stm) || $stm->execute($args) === false) {
-    		return null;
-    	}
-    	return $stm;
-    }
+	public function prepexec($query, $args = []) {
+		$stm = parent::prepare($query);
+		if (empty($stm) || $stm->execute($args) === false) {
+			return null;
+		}
+		return $stm;
+	}
 
 	public function beginTransaction() {
 		++$this->_trd;
-    	if ($this->_trd > 1) {
-    		return parent::exec("SAVEPOINT savepoint_{$this->_trd}");
-    	}
-        return parent::beginTransaction();
+		if ($this->_trd > 1) {
+			return parent::exec("SAVEPOINT savepoint_{$this->_trd}");
+		}
+		return parent::beginTransaction();
 	}
 
-    public function commit() {
-    	if ($this->_trd === 1) {
-    		parent::commit();
-    	}
-        --$this->_trd;
-    }
+	public function commit() {
+		if ($this->_trd === 1) {
+			parent::commit();
+		}
+		--$this->_trd;
+	}
 
-    public function rollback() {
-    	if ($this->_trd > 1) {
-    		parent::exec("ROLLBACK TO SAVEPOINT savepoint_{$this->_trd}");
-    	}
-    	else {
-    		parent::rollBack();
-    	}
-        --$this->_trd;
-    }
+	public function rollback() {
+		if ($this->_trd > 1) {
+			parent::exec("ROLLBACK TO SAVEPOINT savepoint_{$this->_trd}");
+		}
+		else {
+			parent::rollBack();
+		}
+		--$this->_trd;
+	}
 }
