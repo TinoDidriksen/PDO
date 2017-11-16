@@ -19,8 +19,8 @@ class PDO extends \PDO {
 		parent::setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
-	public function prepexec($query, $args = []) {
-		$stm = parent::prepare($query);
+	public function prepexec($query, $args = [], $opts = []) {
+		$stm = parent::prepare($query, $opts);
 		if (empty($stm) || $stm->execute($args) === false) {
 			return null;
 		}
