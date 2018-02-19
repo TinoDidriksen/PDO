@@ -5,7 +5,7 @@
 	"type": "library",
 	"keywords": ["pdo", "mysql", "mariadb"],
 	"homepage": "https://github.com/TinoDidriksen/PDO",
-	"license": "CC0",
+	"license": "CC0-1.0",
 	"authors": [
 		{
 			"name": "Tino Didriksen",
