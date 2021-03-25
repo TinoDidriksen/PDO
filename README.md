@@ -1,11 +1,11 @@
 # TDC/PDO
-PDO MySQL/MariaDB/PostgreSQL wrapper adding nested transactions and sane defaults
+PDO MySQL/MariaDB/PostgreSQL/SQLite wrapper adding nested transactions and sane defaults
 
 ### Installation
 Use [Composer](https://getcomposer.org/)
 
 ```json
 "require": {
-    "tdc/pdo": "1.0.0"
+    "tdc/pdo": "1.1.0"
 }
 ```
