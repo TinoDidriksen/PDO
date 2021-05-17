@@ -6,8 +6,8 @@
 namespace TDC\PDO;
 
 class SQLite extends \TDC\PDO\PDO {
-	public function __construct($db, $user=null, $pass=null) {
-		parent::__construct('sqlite:'.$db, $user, $pass);
+	public function __construct($db, $opts=[]) {
+		parent::__construct('sqlite:'.$db, null, null, $opts);
 		parent::exec("PRAGMA encoding = 'UTF-8'");
 	}
 }

@@ -6,7 +6,7 @@
 namespace TDC\PDO;
 
 class MariaDB extends \TDC\PDO\MySQL {
-	public function __construct($db, $user=null, $pass=null) {
-		parent::__construct($db, $user, $pass);
+	public function __construct($db, $user = null, $pass = null, $opts = []) {
+		parent::__construct($db, $user, $pass, $opts);
 	}
 }
