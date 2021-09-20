@@ -6,6 +6,6 @@ Use [Composer](https://getcomposer.org/)
 
 ```json
 "require": {
-    "tdc/pdo": "1.2.0"
+    "tdc/pdo": "^1.2.0"
 }
 ```
