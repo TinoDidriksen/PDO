@@ -1,7 +1,7 @@
 {
 	"name": "tdc/pdo",
 	"description": "PDO MySQL/MariaDB/PostgreSQL/SQLite wrapper adding nested transactions and sane defaults",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"type": "library",
 	"keywords": ["pdo", "mysql", "mariadb"],
 	"homepage": "https://github.com/TinoDidriksen/PDO",

@@ -27,7 +27,7 @@ class PDO extends \PDO {
 		return $stm;
 	}
 
-	public function beginTransaction() {
+	public function beginTransaction(): bool {
 		++$this->_trd;
 		if ($this->_trd > 1) {
 			return parent::exec("SAVEPOINT savepoint_{$this->_trd}");
@@ -35,20 +35,24 @@ class PDO extends \PDO {
 		return parent::beginTransaction();
 	}
 
-	public function commit() {
+	public function commit(): bool {
+		$rv = true;
 		if ($this->_trd === 1) {
-			parent::commit();
+			$rv = parent::commit();
 		}
 		--$this->_trd;
+		return $rv;
 	}
 
-	public function rollback() {
+	public function rollback(): bool {
+		$rv = true;
 		if ($this->_trd > 1) {
-			parent::exec("ROLLBACK TO SAVEPOINT savepoint_{$this->_trd}");
+			$rv = parent::exec("ROLLBACK TO SAVEPOINT savepoint_{$this->_trd}");
 		}
 		else {
-			parent::rollBack();
+			$rv = parent::rollBack();
 		}
 		--$this->_trd;
+		return $rv;
 	}
 }
